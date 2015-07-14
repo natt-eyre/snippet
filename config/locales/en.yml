@@ -17,3 +17,18 @@ en:
 
   titles:
     application: Snippet
+
+  snips:
+    index:
+      add: New Snip
+    new:
+      add: Create a snip
+
+  activerecord:
+    models:
+      snip: Snip
+    attributes:
+      snip:
+        name: Name
+        description: Description
+        content: Content
