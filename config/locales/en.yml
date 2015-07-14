@@ -23,6 +23,8 @@ en:
       add: New Snip
     new:
       add: Create a snip
+    show:
+      my_snips: My snips
 
   activerecord:
     models:

@@ -14,4 +14,42 @@ describe SnipsController do
       expect(assigns(:snips).map(&:name)).to eq ["our snip"]
     end
   end
+
+  describe "#create" do
+    it "creates snips for current user" do
+      user = create(:user)
+
+      sign_in_as user
+      post :create, snip: { name: "Snip", content: "test" }
+
+      expect(Snip.last.user).to eq(user)
+    end
+  end
+
+  describe "#show" do
+    context "snip belongs to current user" do
+      it "shows the requested snip" do
+        user = create(:user)
+        snip = create(:snip, user: user, name: "snip_name")
+
+        sign_in_as user
+        get :show, id: snip.id
+
+        expect(assigns(:snip).name).to eq "snip_name"
+      end
+    end
+
+    context "snip belongs to other user" do
+      it "shows the requested snip" do
+        our_user = create(:user)
+        other_user = create(:user)
+        snip = create(:snip, user: other_user, name: "snip_name")
+
+        sign_in_as our_user
+        get :show, id: snip.id
+
+        expect(assigns(:snip).name).to eq "snip_name"
+      end
+    end
+  end
 end

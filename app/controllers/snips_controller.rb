@@ -18,6 +18,10 @@ class SnipsController < ApplicationController
     end
   end
 
+  def show
+    @snip = Snip.find(params[:id])
+  end
+
   private
 
   def snip_params

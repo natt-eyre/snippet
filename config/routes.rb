@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  root to: "snips#index"
-  resources :snips, only: [:new, :index, :create]
+  root to: "snips#new"
+  resources :snips, only: [:new, :index, :create, :show]
 end
