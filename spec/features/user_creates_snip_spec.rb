@@ -2,7 +2,7 @@ require "rails_helper"
 
 feature "User creates a snip" do
   scenario "successfully" do
-    visit root_path
+    visit root_path(as: create(:user))
     click_on "New Snip"
     fill_in "Name", with: "S1"
     fill_in "Content", with: "test"

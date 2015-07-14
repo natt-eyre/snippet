@@ -1,7 +1,8 @@
 class SnipsController < ApplicationController
+  before_action :require_login
 
   def index
-    @snips = Snip.all
+    @snips = current_user.snips
   end
 
   def new
@@ -9,7 +10,7 @@ class SnipsController < ApplicationController
   end
 
   def create
-    @snip = Snip.new(snip_params)
+    @snip = current_user.snips.new(snip_params)
     if @snip.save
       redirect_to snips_path
     else
