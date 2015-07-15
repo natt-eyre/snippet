@@ -36,6 +36,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    acts_as_commentable (4.0.2)
     addressable (2.3.8)
     airbrake (4.3.0)
       builder
@@ -273,6 +274,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_commentable
   airbrake
   autoprefixer-rails
   awesome_print

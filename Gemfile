@@ -2,6 +2,7 @@ source "https://rubygems.org"
 
 ruby "2.2.2"
 
+gem 'acts_as_commentable'
 gem "airbrake"
 gem "autoprefixer-rails"
 gem "bourbon", "~> 4.2.0"

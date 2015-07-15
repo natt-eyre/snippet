@@ -27,4 +27,8 @@ class SnipsController < ApplicationController
   def snip_params
     params.require(:snip).permit(:name, :description, :content)
   end
+
+  def comment_params
+    params.require(:comment).permit(:title, :comment)
+  end
 end
