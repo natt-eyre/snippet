@@ -26,11 +26,19 @@ en:
     show:
       my_snips: My snips
 
+  comments:
+    new:
+      post: Post it!
+
   activerecord:
     models:
       snip: Snip
+      comment: Comment
     attributes:
       snip:
         name: Name
         description: Description
         content: Content
+      comment:
+        title: Title
+        comment: Comment

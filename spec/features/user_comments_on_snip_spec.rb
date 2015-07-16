@@ -6,11 +6,10 @@ feature "User comments" do
     snip = create(:snip, user: user)
 
     visit snip_path(snip, as: user)
-    click_on "Add comment"
     
-    fill_in "Title", with: "first"
-    fill_in "Comment", with: "I'm first!"
-    click_on "Post it!"
+    fill_in Comment.human_attribute_name("title"), with: "first"
+    fill_in Comment.human_attribute_name("comment"), with: "I'm first!"
+    click_on t("comments.new.post")
 
     expect(page.current_path).to eq(snip_path(snip))
     expect(page).to have_content("I'm first!")

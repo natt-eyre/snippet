@@ -1,5 +1,13 @@
-<%= link_to t("snips.show.my_snips"), snips_path %>
-
 <p><%= @snip.name %></p>
 <p><%= @snip.description %></p>
 <p><%= @snip.content %></p>
+
+<%= simple_form_for ([@snip, @comment]) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :comment %>
+  <%= f.submit t("comments.new.post") %>
+<% end %>
+
+<p>
+  <%= render collection: @comments, partial: "comments/comment" %>
+</p>

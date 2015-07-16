@@ -19,7 +19,10 @@
       <%= button_to 'Sign out', sign_out_path, method: :delete %>
     <% else %>
       <%= link_to 'Sign in', sign_in_path %>
-    <% end %>
+  <% end %>
+
+  <%= link_to t("snips.show.my_snips"), snips_path %>
+  <%= link_to t("snips.index.add"), new_snip_path %>
 
   <%= render "flashes" -%>
   <%= yield %>

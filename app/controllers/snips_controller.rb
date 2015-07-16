@@ -20,15 +20,13 @@ class SnipsController < ApplicationController
 
   def show
     @snip = Snip.find(params[:id])
+    @comment = @snip.comments.new
+    @comments = @snip.comments
   end
 
   private
 
   def snip_params
     params.require(:snip).permit(:name, :description, :content)
-  end
-
-  def comment_params
-    params.require(:comment).permit(:title, :comment)
   end
 end
