@@ -5,6 +5,7 @@ ruby "2.2.2"
 gem 'acts_as_commentable'
 gem "airbrake"
 gem "autoprefixer-rails"
+gem 'bootstrap-sass', '~> 3.3.5'
 gem "bourbon", "~> 4.2.0"
 gem "clearance"
 gem "coffee-rails", "~> 4.1.0"

@@ -1,0 +1,13 @@
+<div class="container-fluid">
+  <div class="col-md-4">
+    <h2><%= t(".title") %></h2>
+
+    <%= simple_form_for @user do |form| %>
+      <%= render partial: '/users/form', object: form %>
+
+      <div class="form-group">
+        <%= form.button :submit, "Sign up" %>
+      </div>
+    <% end %>
+  </div>
+</div>

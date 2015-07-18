@@ -7,7 +7,6 @@ feature "User comments" do
 
     visit snip_path(snip, as: user)
     
-    fill_in Comment.human_attribute_name("title"), with: "first"
     fill_in Comment.human_attribute_name("comment"), with: "I'm first!"
     click_on t("comments.new.post")
 
