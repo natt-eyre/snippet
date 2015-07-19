@@ -1,3 +1,7 @@
 <div class="col-md-4">
-    <%= render collection: @snips, partial: "snip" %>
+    <% if @snips.empty? %>
+      <p>There are no snips yet.</p>
+    <% else %>
+      <%= render collection: @snips, partial: "snip" %>
+    <% end %>
 </div>

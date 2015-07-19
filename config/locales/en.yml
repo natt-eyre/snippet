@@ -23,7 +23,7 @@ en:
     form:
       forgot_password: Forgot password
     new:
-      title: Title
+      title: Sign in
   snips:
     index:
       add: New Snip
@@ -40,4 +40,4 @@ en:
     application: Snippet
   users:
     new:
-      title: Title
+      title: Sign up

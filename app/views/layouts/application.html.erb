@@ -33,12 +33,12 @@
       <ul class="nav navbar-nav navbar-right">
         <% if signed_in? %>
           <li><p class="navbar-text">Signed in as: <%= current_user.email %></p></li>
-          <li><button type="button" class="btn btn-default navbar-btn"><%= link_to 'Sign out', sign_out_path, method: :delete %></button></li>
+          <li><%= button_to 'Sign out', sign_out_path, class: "btn btn-default navbar-btn", method: :delete %></li>
         <% else %>
-          <li><button type="button" class="btn btn-default navbar-btn"><%= link_to 'Sign in', sign_in_path %></button></li>
+          <li><%= button_to 'Sign in', sign_in_path, class: "btn btn-default navbar-btn", method: :get %></li>
           <li><p class="navbar-text"></p></li>
           <% if Clearance.configuration.allow_sign_up? %>
-            <li><button type="button" class="btn btn-default navbar-btn"><%= link_to 'Sign up', sign_up_path %></button></li>
+            <li><%= button_to 'Sign up', sign_up_path, class: "btn btn-default navbar-btn", method: :get %></li>
           <% end %>
         <% end %>
       </ul>

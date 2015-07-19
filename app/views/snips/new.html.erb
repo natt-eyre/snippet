@@ -1,8 +1,8 @@
 <div class="container-fluid">
    <div class="col-md-4">
       <%= simple_form_for(@snip, html: { class: 'form-horizontal' }, wrapper: :horizontal_form) do |f| %>
-        <%= f.input :name, placeholder: 'Name for your snip', required: true %>
-        <%= f.input :description, placeholder: 'Add description if necessary', required: false %>
+        <%= f.input :name, placeholder: 'Name for your snip', input_html: { maxlength: 40 }, required: true %>
+        <%= f.input :description, placeholder: 'Add description if necessary', input_html: { maxlength: 50 }, required: false %>
         <%= f.input :content, as: :text, placeholder: 'Add contents of your snip', required: true %>
         <%= f.button :submit, t("snips.new.add") %>
       <% end %>
