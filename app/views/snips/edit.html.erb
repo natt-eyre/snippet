@@ -1,0 +1,10 @@
+<div class="container-fluid">
+   <div class="col-md-4">
+      <%= simple_form_for(@snip, html: { class: 'form-horizontal' }, wrapper: :horizontal_form) do |f| %>
+        <%= f.input :name, placeholder: 'Name for your snip', required: true %>
+        <%= f.input :description, placeholder: 'Add description if necessary', required: false %>
+        <%= f.input :content, as: :text, placeholder: 'Add contents of your snip', required: true %>
+        <%= f.button :submit, "Save changes" %>
+      <% end %>
+    </div>
+</div>

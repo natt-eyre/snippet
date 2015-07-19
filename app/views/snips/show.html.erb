@@ -14,6 +14,10 @@
     </div><!-- col-md8-->
   </div>
 
+  <% if @snip.user == current_user %>
+    <%= button_to "Edit", edit_snip_path(@snip), class: "btn btn-default", method: :get %>
+  <% end %>
+
   <div class ="row new-comment-form">
     <div class="col-md-8">
       <%= simple_form_for [@snip, @comment] do |f| %>

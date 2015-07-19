@@ -24,6 +24,25 @@ class SnipsController < ApplicationController
     @comment = @snip.comments.new
   end
 
+  def edit
+    @snip = current_user.snips.find(params[:id])
+  end
+
+  def update
+    @snip = current_user.snips.find(params[:id])
+    if @snip.update_attributes(snip_params)
+      redirect_to @snip
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    snip = current_user.snips.find(params[:id])
+    snip.destroy!
+    redirect_to snips_path
+  end
+
   private
 
   def snip_params

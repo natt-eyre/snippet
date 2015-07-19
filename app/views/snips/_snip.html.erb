@@ -1,6 +1,10 @@
-<%= div_for snip, class: "list-group" do %>
-  <%= link_to snip, class: "list-group-item active" do %>
-    <h4 class="list-group-item-heading"><%= snip.name %></h4>
-    <p class="list-group-item-text"><%= snip.description %></p>
-  <% end %>
+<%= div_for snip, class: "panel panel-default" do %>
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= link_to snip.name, snip %>
+    <%= link_to "Delete", snip, class: "pull-right", method: :delete %>
+    </h3>
+  </div>
+  <div class="panel-body">
+    <%= snip.description.blank? ? "..." : snip.description %>
+  </div>
 <% end %>

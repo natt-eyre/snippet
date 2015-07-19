@@ -52,4 +52,57 @@ describe SnipsController do
       end
     end
   end
+
+  describe "#update" do
+    context "snip belongs to current user" do
+      it "updates the snip of current user" do
+        user = create(:user)
+        snip = create(:snip, user: user, name: "snip_name")
+
+        sign_in_as user
+        put :update, id: snip.id, snip: { name: "edited_name"}
+
+        expect(assigns(:snip).name).to eq "edited_name"
+      end
+    end
+
+    context "snip belongs to other user" do
+      it "doesn't update the snip of other user" do
+        our_user = create(:user)
+        other_user = create(:user)
+        snip = create(:snip, user: other_user, name: "snip_name")
+
+        sign_in_as our_user
+
+        expect { put :update, id: snip.id, snip: { name: "edited_name"}
+          }.to raise_error ActiveRecord::RecordNotFound
+      end
+    end
+  end
+
+  describe "#destroy" do
+    context "snip belongs to current user" do
+      it "deletes the snip" do
+        user = create(:user)
+        snip = create(:snip, user: user)
+
+        sign_in_as user
+        expect { delete :destroy, id: snip.id }.to change {
+          user.snips.count }.by(-1)
+      end
+    end
+
+    context "snip belongs to other user" do
+      it "doesn't delete the snip" do
+        our_user = create(:user)
+        other_user = create(:user)
+        snip = create(:snip, user: other_user, name: "snip_name")
+
+        sign_in_as our_user
+
+        expect { delete :destroy, id: snip.id
+          }.to raise_error ActiveRecord::RecordNotFound
+      end
+    end
+  end
 end
