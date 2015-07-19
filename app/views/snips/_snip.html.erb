@@ -1,4 +1,6 @@
-<%= div_for snip do %>
-  <%= link_to snip.name, snip %>
-  <%= snip.description %>
+<%= div_for snip, class: "list-group" do %>
+  <%= link_to snip, class: "list-group-item active" do %>
+    <h4 class="list-group-item-heading"><%= snip.name %></h4>
+    <p class="list-group-item-text"><%= snip.description %></p>
+  <% end %>
 <% end %>

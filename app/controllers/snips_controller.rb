@@ -20,8 +20,8 @@ class SnipsController < ApplicationController
 
   def show
     @snip = Snip.find(params[:id])
+    @comments = @snip.comments.to_a
     @comment = @snip.comments.new
-    @comments = @snip.comments
   end
 
   private

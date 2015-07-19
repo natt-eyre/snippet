@@ -1,44 +1,43 @@
+---
 en:
+  activerecord:
+    attributes:
+      comment:
+        comment: Comment
+        title: Title
+      snip:
+        content: Content
+        description: Description
+        name: Name
+    models:
+      comment: Comment
+      snip: Snip
+  comments:
+    new:
+      post: Post it!
   date:
     formats:
-      default:
-        "%m/%d/%Y"
-      with_weekday:
-        "%a %m/%d/%y"
-
-  time:
-    formats:
-      default:
-        "%a, %b %-d, %Y at %r"
-      date:
-        "%b %-d, %Y"
-      short:
-        "%B %d"
-
-  titles:
-    application: Snippet
-
+      default: "%m/%d/%Y"
+      with_weekday: "%a %m/%d/%y"
+  sessions:
+    form:
+      forgot_password: Forgot password
+    new:
+      title: Title
   snips:
     index:
       add: New Snip
     new:
-      add: Create a snip
+      add: Create Snip
     show:
-      my_snips: My snips
-
-  comments:
+      my_snips: My Snips
+  time:
+    formats:
+      date: "%b %-d, %Y"
+      default: "%a, %b %-d, %Y at %r"
+      short: "%B %d"
+  titles:
+    application: Snippet
+  users:
     new:
-      post: Post it!
-
-  activerecord:
-    models:
-      snip: Snip
-      comment: Comment
-    attributes:
-      snip:
-        name: Name
-        description: Description
-        content: Content
-      comment:
-        title: Title
-        comment: Comment
+      title: Title

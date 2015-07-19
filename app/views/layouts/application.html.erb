@@ -13,19 +13,40 @@
   <%= stylesheet_link_tag :application, media: "all" %>
   <%= csrf_meta_tags %>
 </head>
-<body class="<%= body_class %>">
-  <% if signed_in? %>
-      Signed in as: <%= current_user.email %>
-      <%= button_to 'Sign out', sign_out_path, method: :delete %>
-    <% else %>
-      <%= link_to 'Sign in', sign_in_path %>
-  <% end %>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+   <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <%= link_to 'Snippet', snips_path, class: 'navbar-brand' %>
+    </div>
 
-  <%= link_to t("snips.show.my_snips"), snips_path %>
-  <%= link_to t("snips.index.add"), new_snip_path %>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><%= link_to t("snips.index.add"), new_snip_path %><span class="sr-only">(current)</span></li>
+        <li><%= link_to t("snips.show.my_snips"), snips_path %></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if signed_in? %>
+          <li><p class="navbar-text">Signed in as: <%= current_user.email %></p></li>
+          <li><button type="button" class="btn btn-default navbar-btn"><%= link_to 'Sign out', sign_out_path, method: :delete %></button></li>
+        <% else %>
+          <li><button type="button" class="btn btn-default navbar-btn"><%= link_to 'Sign in', sign_in_path %></button></li>
+          <li><p class="navbar-text"></p></li>
+          <% if Clearance.configuration.allow_sign_up? %>
+            <li><button type="button" class="btn btn-default navbar-btn"><%= link_to 'Sign up', sign_up_path %></button></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div>
+</nav>
 
   <%= render "flashes" -%>
   <%= yield %>
   <%= render "javascript" %>
-</body>
 </html>

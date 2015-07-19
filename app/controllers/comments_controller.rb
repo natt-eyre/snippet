@@ -7,6 +7,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @snip.comments.new(comment_params)
+    @comment.user = current_user
 
     if @comment.save
       redirect_to snip_path(@snip)

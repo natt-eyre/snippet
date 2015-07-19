@@ -1,4 +1,3 @@
-<%= div_for comment do %>
-  <%= comment.title %>
-  <%= comment.comment %>
+<%= div_for comment, class: "panel panel-default" do %>
+  <div class="panel-body"><%= simple_format(comment.comment) %></div>
 <% end %>

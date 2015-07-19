@@ -1,13 +1,33 @@
-<p><%= @snip.name %></p>
-<p><%= @snip.description %></p>
-<p><%= @snip.content %></p>
+<div class="container-fluid">
 
-<%= simple_form_for ([@snip, @comment]) do |f| %>
-  <%= f.input :title %>
-  <%= f.input :comment %>
-  <%= f.submit t("comments.new.post") %>
-<% end %>
+  <div class="row">
+    <div class="col-md-8">
+      <p><%= @snip.description %></p>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= @snip.name %></h3>
+        </div><!--panel-heading-->
+        <div class="panel-body">
+          <%= simple_format(@snip.content) %>
+        </div><!--panel-body-->
+      </div><!-- panel-primary-->
+    </div><!-- col-md8-->
+  </div>
 
-<p>
-  <%= render collection: @comments, partial: "comments/comment" %>
-</p>
+  <div class ="row new-comment-form">
+    <div class="col-md-8">
+      <%= simple_form_for [@snip, @comment] do |f| %>
+        <%= f.input :comment, placeholder: "Comment" %>
+        <%= f.button :submit, t("comments.new.post") %>
+      <% end %>
+    </div>
+  </div>
+
+
+
+  <div class ="row">
+    <div class="col-md-8">
+      <%= render collection: @comments, partial: "comments/comment" %>
+    </div>
+  </div>
+</div>
