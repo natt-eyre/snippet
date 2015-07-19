@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to snip_path(@snip)
     else
-      render :new
+      render "snips/show"
     end
   end
 
