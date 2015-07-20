@@ -46,6 +46,6 @@ class SnipsController < ApplicationController
   private
 
   def snip_params
-    params.require(:snip).permit(:name, :description, :content)
+    params.require(:snip).permit(:name, :description, :language_id, :content)
   end
 end

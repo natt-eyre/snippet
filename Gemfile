@@ -8,6 +8,7 @@ gem "autoprefixer-rails"
 gem 'bootstrap-sass', '~> 3.3.5'
 gem "bourbon", "~> 4.2.0"
 gem "clearance"
+gem "coderay", ">= 1.1.0"
 gem "coffee-rails", "~> 4.1.0"
 gem "delayed_job_active_record"
 gem "email_validator"

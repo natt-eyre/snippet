@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150715194225) do
+ActiveRecord::Schema.define(version: 20150720204839) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,12 @@ ActiveRecord::Schema.define(version: 20150715194225) do
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
+  create_table "languages", force: :cascade do |t|
+    t.string   "lang"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "snips", force: :cascade do |t|
     t.string   "name",        null: false
     t.string   "description"
@@ -54,8 +60,10 @@ ActiveRecord::Schema.define(version: 20150715194225) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
+    t.integer  "language_id"
   end
 
+  add_index "snips", ["language_id"], name: "index_snips_on_language_id", using: :btree
   add_index "snips", ["user_id"], name: "index_snips_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
@@ -70,5 +78,6 @@ ActiveRecord::Schema.define(version: 20150715194225) do
   add_index "users", ["email"], name: "index_users_on_email", using: :btree
   add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
 
+  add_foreign_key "snips", "languages"
   add_foreign_key "snips", "users"
 end

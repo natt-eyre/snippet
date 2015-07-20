@@ -8,7 +8,11 @@
           <h3 class="panel-title"><%= @snip.name %></h3>
         </div><!--panel-heading-->
         <div class="panel-body">
-          <%= simple_format(@snip.content) %>
+          <% if @snip.language.lang == "text" %>
+            <%= simple_format(@snip.content) %>
+          <% else %>
+            <%= CodeRay.scan(@snip.content, @snip.language.lang.to_sym).div(:line_numbers => :table).html_safe %>
+          <% end %>
         </div><!--panel-body-->
       </div><!-- panel-primary-->
     </div><!-- col-md8-->
