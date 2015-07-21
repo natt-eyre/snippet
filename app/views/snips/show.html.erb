@@ -9,7 +9,7 @@
         </div><!--panel-heading-->
         <div class="panel-body">
           <% if @snip.language.lang == "text" %>
-            <%= simple_format(@snip.content) %>
+            <%= simple_format h(@snip.content) %>
           <% else %>
             <%= CodeRay.scan(@snip.content, @snip.language.lang.to_sym).div(:line_numbers => :table).html_safe %>
           <% end %>

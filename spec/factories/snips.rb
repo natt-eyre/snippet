@@ -3,5 +3,6 @@ FactoryGirl.define do
     name "MyString"
     description "MyString"
     content "MyText"
+    language Language.first
   end
 end

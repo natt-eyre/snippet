@@ -1,7 +1,7 @@
 require "rails_helper"
 
 feature "User creates a snip" do
-  scenario "successfully" do
+  scenario "with text" do
     submit_snip name: "S1", content: "test"
 
     expect(page.current_path).to eq(snips_path)

@@ -3,7 +3,7 @@
       <%= simple_form_for(@snip, html: { class: 'form-horizontal' }, wrapper: :horizontal_form) do |f| %>
         <%= f.input :name, placeholder: 'Name for your snip', input_html: { maxlength: 40 }, required: true %>
         <%= f.input :description, placeholder: 'Add description if necessary', input_html: { maxlength: 50 }, required: false %>
-        <%= f.association :language, label_method: :lang, collection: Language.all, prompt: "Select language" %>
+        <%= f.association :language, label_method: :lang, collection: Language.all, prompt: "Select language", selected: "text" %>
         <%= f.input :content, as: :text, placeholder: 'Add contents of your snip', required: true %>
         <%= f.button :submit, t("snips.new.add") %>
       <% end %>
