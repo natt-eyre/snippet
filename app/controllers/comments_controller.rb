@@ -19,7 +19,7 @@ class CommentsController < ApplicationController
   private
 
   def find_snip
-    @snip = current_user.snips.find(params[:snip_id])
+    @snip = Snip.find(params[:snip_id])
   end
 
   def comment_params

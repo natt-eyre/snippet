@@ -51,6 +51,17 @@ describe SnipsController do
         expect(assigns(:snip).name).to eq "snip_name"
       end
     end
+
+    context "for guest user" do
+      it "shows the requested snip" do
+        snip = create(:snip, name: "snip_name")
+
+        sign_out
+        get :show, id: snip.id
+
+        expect(assigns(:snip).name).to eq "snip_name"
+      end
+    end
   end
 
   describe "#update" do

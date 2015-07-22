@@ -1,4 +1,6 @@
 <%= div_for comment, class: "panel panel-default" do %>
   <div class="panel-body"><%= simple_format(comment.comment) %></div>
-  <div class="panel-footer"><%= comment.user.email %></div>
+  <% if current_user %>
+    <div class="panel-footer"><%= comment.user.email %></div>
+  <% end %>
 <% end %>

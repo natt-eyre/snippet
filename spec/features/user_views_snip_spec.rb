@@ -1,5 +1,4 @@
 require "rails_helper"
-load "#{Rails.root}/db/seeds.rb"
 
 feature "User views the requested snip" do
   scenario "of current user" do
