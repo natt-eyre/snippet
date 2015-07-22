@@ -2,8 +2,9 @@ require "rails_helper"
 
 feature "User comments" do
   scenario "on his own snip" do
+    language = create(:language, lang: "text")
     user = create(:user)
-    snip = create(:snip, user: user)
+    snip = create(:snip, user: user, language: language)
 
     visit snip_path(snip, as: user)
     

@@ -2,8 +2,9 @@ require "rails_helper"
 
 feature "User updates his snip" do
   scenario "succesfully" do
+    language = create(:language, lang: "text")
     user = create(:user)
-    snip = create(:snip, user: user, name: "s1", content: "text")
+    snip = create(:snip, user: user, name: "s1", content: "text", language: language)
     visit snips_path(as: user)
     click_on snip.name
 
