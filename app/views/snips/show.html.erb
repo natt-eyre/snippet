@@ -18,35 +18,33 @@
     </div><!-- col-md8-->
   </div>
 
-  <% if @snip.user == current_user %>
-    <%= button_to "Edit", edit_snip_path(@snip), class: "btn btn-default", method: :get %>
-  <% end %>
+  <div class="row">
+    <div class="col-md-8">
+      <% if @snip.user == current_user %>
+        <%= button_to "Edit", edit_snip_path(@snip), class: "btn btn-default", method: :get %>
+      <% end %>
+    </div>
+  </div>
 
-  <div class='demo-area'>
-  <button class='my_clip_button' data-clipboard-target='fe_text' data-clipboard-text='Default clipboard text from attribute' id='d_clip_button' title='Click me to copy to clipboard.'>
-    <b>Copy To Clipboard...</b>
-  </button>
-  <h4>
-    <label for='fe_text'>Change Copy Text Here</label>
-  </h4>
-  <textarea cols='50' id='fe_text' rows='3'>Copy me!</textarea>
-  <h4>
-    <label for='testarea'>Paste Text Here</label>
-  </h4>
-  <textarea cols='50' id='testarea' rows='3'></textarea>
-  <p>
-    <button id='clear-test'>Clear Test Area</button>
-  </p>
-</div>
+  <div class="row copy-clipboard">
+    <div class="col-md-3">
+      <div class='input-group'>
+        <span class="input-group-btn">
+          <button type="button" class="btn btn-default" data-clipboard-target='fe_text'
+           data-clipboard-text='Default clipboard text from attribute' id='d_clip_button'>
+            <span class="glyphicon glyphicon-copy" aria-hidden="true"></span>
+          </button>
+        </span>
+
+        <input type="text" class="form-control" id='fe_text' readonly="readonly" value = "<%= snip_url(@snip) %>" >
+      </div>
+    </div>
+  </div>
+
 <script>
   document.addEventListener("DOMContentLoaded", function(event) { 
     $(document).ready(function() {
       var clip = new ZeroClipboard($("#d_clip_button"))
-    });
-
-    $("#clear-test").on("click", function(){
-      $("#fe_text").val("Copy me!");
-      $("#testarea").val("");
     });
   });
 
